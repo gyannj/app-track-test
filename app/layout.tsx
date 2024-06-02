@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,21 +22,26 @@ export default function RootLayout({
 
     <html lang="en">
        <body className='min-h-screen flex flex-col'>
-          
-          {/* Toaster */}
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >  
+            {/* Toaster */}
 
-          {/* Header */}
-          <header className="border-b sticky bg-white z-50">
-            <Header/>
-          </header>
-          
-          
-          <div className="bg-[#F4F2ED] flex-1 w-full">
-            <main>
-              {children}
-            </main>
-          </div>
-          
+            {/* Header */}
+            <header className="border-b sticky">
+              <Header/>
+            </header>
+            
+            
+            <div className=" flex-1 w-full">
+              <main>
+                {children}
+              </main>
+            </div>
+          </ThemeProvider>
         </body>
     </html>
     </ClerkProvider>

@@ -7,10 +7,10 @@
       @apply flex p-1 items-center justify-center text-sm font-normal
     }
     .icon svg{
-      @apply fill-white stroke-gray-300 mr-1
+      @apply mr-1
     }
     .icon p{
-      @apply text-gray-400 text-xs
+      @apply text-xs
     }
   }
 
